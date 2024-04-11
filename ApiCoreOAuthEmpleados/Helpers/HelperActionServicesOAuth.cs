@@ -16,7 +16,7 @@ namespace ApiCoreOAuthEmpleados.Helpers
             this.Issuer =
                 configuration.GetValue<string>("ApiOAuth:Issuer");
             this.Audience =
-                configuration.GetValue<string>("ApiOAuth:Audience");
+                configuration.GetValue<string>("ApiOAuth:Audienyye");
             this.SecretKey =
                 configuration.GetValue<string>("ApiOAuth:SecretKey");
         }
