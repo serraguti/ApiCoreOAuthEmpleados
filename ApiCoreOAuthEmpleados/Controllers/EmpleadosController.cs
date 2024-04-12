@@ -70,5 +70,36 @@ namespace ApiCoreOAuthEmpleados.Controllers
                 (empleado.IdDepartamento);
             return compis;
         }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<ActionResult<List<string>>>
+            Oficios()
+        {
+            return await this.repo.GetOficiosAsync();
+        }
+
+        //?oficio=dato&oficio=data2
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<ActionResult<List<Empleado>>>
+            EmpleadosOficios([FromQuery] List<string> oficio)
+        {
+            return await this.repo.GetEmpleadosOficiosAsync(oficio);
+        }
+
+        //localhost:/api/Update/25/?oficio=dato&oficio=data2
+        [HttpPut]
+        [Route("[action]/{incremento}")]
+        public async Task<ActionResult>
+            IncrementarSalarioOficios
+            (int incremento,
+            [FromQuery]List<string> oficio)
+        {
+            await this.repo
+                .IncrementarSalarioEmpleadosOficiosAsync
+                (incremento, oficio);
+            return Ok();
+        }
     }
 }
