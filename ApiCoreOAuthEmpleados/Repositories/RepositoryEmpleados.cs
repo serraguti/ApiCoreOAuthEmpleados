@@ -1,5 +1,6 @@
 ﻿using ApiCoreOAuthEmpleados.Data;
 using ApiCoreOAuthEmpleados.Models;
+using Microsoft.Data.SqlClient.DataClassification;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiCoreOAuthEmpleados.Repositories
@@ -22,6 +23,14 @@ namespace ApiCoreOAuthEmpleados.Repositories
         {
             return await this.context.Empleados
                 .FirstOrDefaultAsync(x => x.IdEmpleado == idEmpleado);
+        }
+
+        public async Task<List<Empleado>> 
+            GetCompisDepartamentoAsync(int idDepartamento)
+        {
+            return await this.context.Empleados
+                .Where(z => z.IdDepartamento == idDepartamento)
+                .ToListAsync();
         }
 
         public async Task<Empleado> 
