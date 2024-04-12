@@ -55,6 +55,8 @@ namespace ApiCoreOAuthEmpleados.Controllers
                 //CONVERTIMOS EL EMPLEADO A FORMATO JSON
                 string jsonEmpleado =
                     JsonConvert.SerializeObject(empleado);
+                //ESTO DEBE IR CIFRADO POR NOSOTROS
+
                 //CREAMOS UN ARRAY DE CLAIMS CON TODA 
                 //LA INFORMACION QUE DESEAMOS GUARDAR EN EL TOKEN
                 Claim[] informacion = new[]
